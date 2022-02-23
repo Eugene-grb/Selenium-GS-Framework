@@ -6,9 +6,9 @@ public enum BrowserName {
     FIREFOX("firefox"),
     EDGE("edge");
 
-    private String browserName;
+    private final String browserName;
 
-    private BrowserName(String browserName) {
+    BrowserName(String browserName) {
         this.browserName = browserName;
     }
 
@@ -17,7 +17,7 @@ public enum BrowserName {
         return String.valueOf(this.browserName);
     }
 
-    // Возврат значения константы по строковому значению константы
+    /* Возврат значения константы по строковому значению константы */
     public static BrowserName fromString(String browserName) {
         if (browserName != null) {
             for(BrowserName browser : BrowserName.values()) {
@@ -29,6 +29,7 @@ public enum BrowserName {
         return null;
     }
 
+    /* получить имя браузера  */
     public String getBrowserName() {
         return this.browserName;
     }

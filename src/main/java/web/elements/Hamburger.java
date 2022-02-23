@@ -1,14 +1,13 @@
 package web.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import web.base.BaseElement;
 import web.helpers.WaitFor;
 
-public class HamburgerMenu extends BaseElement {
+public class Hamburger extends BaseElement {
 
-    public HamburgerMenu(RemoteWebDriver driver, By by) {
-        super(driver, by);
+    public Hamburger(By by) {
+        super(by);
     }
 
     /** Раскрытие гармошки */

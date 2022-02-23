@@ -1,14 +1,13 @@
 package web.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import web.base.BaseElement;
 import web.helpers.WaitFor;
 
 public class TextBox extends BaseElement {
 
-    public TextBox(RemoteWebDriver driver, By by) {
-        super(driver, by);
+    public TextBox(By by) {
+        super(by);
     }
 
     /** Нажатие на текстовое поле ввода */
@@ -22,5 +21,10 @@ public class TextBox extends BaseElement {
     public void setValue(String value) {
         WaitFor.visibilityOfElementLocated(by);
         webElement.sendKeys(value);
+    }
+
+    public String getTextValue() {
+        WaitFor.visibilityOfElementLocated(by);
+        return webElement.getText();
     }
 }

@@ -7,8 +7,8 @@ import web.helpers.WaitFor;
 
 public class RadioButton extends BaseElement {
 
-    public RadioButton(RemoteWebDriver driver, By by) {
-        super(driver, by);
+    public RadioButton(By by) {
+        super(by);
     }
 
     /** Установка переключателя */

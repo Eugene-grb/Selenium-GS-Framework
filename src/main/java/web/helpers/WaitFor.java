@@ -2,10 +2,10 @@ package web.helpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import web.driver.DriverInstance;
 
 import java.time.Duration;
 
@@ -13,10 +13,9 @@ public class WaitFor {
 
     protected static WebDriverWait wait;
 
-    // Инициализация ожидания драйвера браузера
     /** Установка таймаута ожидания и интервал опроса */
-    public static void initWait(RemoteWebDriver driver, Duration timeOut, Duration sleep) {
-        wait = new WebDriverWait(driver, timeOut, sleep);
+    public static void initWait(Duration timeOut, Duration sleep) {
+        wait = new WebDriverWait(DriverInstance.getCurrentDriver(), timeOut, sleep);
     }
 
     /** Ожидание наличия элемента по локатору */
@@ -50,6 +49,7 @@ public class WaitFor {
     }
 
     /** Ожидание появления в списке продуктов в первой позиции заданного продукта */
+    @Deprecated
     public static void firstProductMustBe(By webElement, String product) {
         wait.until((ExpectedCondition<Boolean>) webDriver ->
                 webDriver.findElement(webElement).getText().contains(product));

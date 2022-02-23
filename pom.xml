@@ -19,11 +19,20 @@
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
 
         <!-- DEPENDENCIES -->
-        <assertj.version>3.22.0</assertj.version>
+        <!-- selenium -->
         <selenium.version>4.1.2</selenium.version>
         <webdrivermanager.version>5.1.0</webdrivermanager.version>
-        <logback.version>1.2.10</logback.version>
+
+        <!-- asserts -->
+        <assertj.version>3.22.0</assertj.version>
+
+        <!-- tests -->
         <testng.version>7.5</testng.version>
+
+        <!-- logging -->
+        <logback.version>1.2.10</logback.version>
+
+        <!-- other -->
         <lombok.version>1.18.22</lombok.version>
     </properties>
 
@@ -50,7 +59,7 @@
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
+            <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
         <dependency>

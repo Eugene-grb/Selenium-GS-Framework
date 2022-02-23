@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import web.driver.BrowserName;
-import web.driver.DriverFactory;
+import web.driver.DriverInstance;
 
 @Slf4j
 public abstract class BaseTest {
@@ -16,7 +16,7 @@ public abstract class BaseTest {
     @BeforeTest
     public void setUp() {
         String browser = System.getProperty("browser", "chrome").toLowerCase();
-        driver = DriverFactory.getDriver(BrowserName.fromString(browser));
+        driver = DriverInstance.getDriver(BrowserName.fromString(browser));
         log.info("Драйвер стартовал!");
     }
 

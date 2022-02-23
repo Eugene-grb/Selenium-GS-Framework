@@ -2,7 +2,7 @@ package web.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import web.driver.DriverInstance;
 import web.helpers.WaitFor;
 
 import java.time.Duration;
@@ -10,20 +10,19 @@ import java.time.Duration;
 public abstract class BaseElement {
 
     protected WebElement webElement;
-    protected RemoteWebDriver driver;
     protected By by;
     private static final Duration DURATION_TIMEOUT = Duration.ofSeconds(3);
     private static final Duration DURATION_SLEEP = Duration.ofSeconds(3);
 
-    // базовый конструктор
-    public BaseElement(RemoteWebDriver driver, By by) {
-        this.driver = driver;
+    /**  Базовый элемент
+     * @param by - локатор элемента
+     * В конструкторе инициализируется длительность ожидания появления элемента
+     * и осуществляется поиск элемента */
+    public BaseElement(By by) {
         this.by = by;
-        // Ожидание появления элемента перед поиском элемента
-        WaitFor.initWait(driver, DURATION_TIMEOUT, DURATION_SLEEP);
+        WaitFor.initWait(DURATION_TIMEOUT, DURATION_SLEEP);
         WaitFor.presenceOfElementLocated(by);
-        // Поиск веб элемента
-        webElement = driver.findElement(by);
+        webElement = DriverInstance.getCurrentDriver().findElement(by);
     }
 
     /** Получение оборачиваемого элемента

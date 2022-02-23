@@ -1,7 +1,8 @@
 package web.base;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import web.helpers.JSExecutor;
+import web.helpers.ActionFor;
+import web.helpers.JavaScript;
 import web.helpers.WaitFor;
 
 import java.time.Duration;
@@ -15,10 +16,13 @@ public abstract class BasePage {
     // Конструктор базового класса
     public BasePage(RemoteWebDriver driver) {
         BasePage.driver = driver;
+        WaitFor.initWait(DURATION_TIMEOUT, DURATION_SLEEP);
+        JavaScript.initJS();
+        ActionFor.initActions();
+    }
 
-        // Инициализация ожидания - 10 секунд
-        WaitFor.initWait(driver, DURATION_TIMEOUT, DURATION_SLEEP);
-        // Инициализация исполнителя JS скриптов
-        JSExecutor.initJS(driver);
+    /** Получение заголовка текущей страницы */
+    public static String getPageTitle() {
+        return driver.getTitle();
     }
 }

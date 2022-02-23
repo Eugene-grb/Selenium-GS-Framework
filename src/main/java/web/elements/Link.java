@@ -1,16 +1,13 @@
 package web.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WindowType;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import web.base.BaseElement;
-import web.helpers.WaitFor;
+import web.helpers.*;
 
 public class Link extends BaseElement {
 
-    public Link(RemoteWebDriver driver, By by) {
-        super(driver, by);
+    public Link(By by) {
+        super(by);
     }
 
     // Получение ссылки
@@ -28,16 +25,19 @@ public class Link extends BaseElement {
     /** Наведение курсора мыши на ссылку */
     public void focusOnLink() {
         WaitFor.visibilityOfElementLocated(by);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(webElement).perform();
+        ActionFor.moveToElement(webElement);
     }
 
-    /** Открытие ссылки в ново окне */
+    /** Открытие ссылки в новом окне
+     * 1. Получение URL ссылки.
+     * 2. Создание нового окна и переключение на него.
+     * 3. Максимизация размеров окна.
+     * 4. Переход по ссылке в новом окне */
     public void openInNewWindow() {
         String URL = this.getURL();
-        driver.switchTo().newWindow(WindowType.WINDOW);
-        driver.manage().window().maximize();
-        driver.navigate().to(URL);
+        SwitchTo.switchToNewWindow();
+        WindowSetTo.maximizeWindow();
+        NavigateTo.openPage(URL);
     }
 
 }

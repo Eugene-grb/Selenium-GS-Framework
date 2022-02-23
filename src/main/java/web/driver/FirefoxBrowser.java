@@ -1,28 +1,19 @@
-package dev.selenium.gsframework.driver;
+package web.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-/**
- * Настройки для браузера Firefox
- *
- * author : egribanov
- * created : 13.02.2022, 18:21
- **/
-@SuppressWarnings({"SpellCheckingInspection"})
-public class MozillaFirefox {
-    /**
-     * Получение экземпляра вебдрайвера для запуска Firefox
-     * @return WebDriver - настроенный экземпляр браузера
-     */
-    public static WebDriver getDriver() {
+public class FirefoxBrowser {
+    public static RemoteWebDriver getDriver() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
+        options.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, PageLoadStrategy.NORMAL);
         options.addArguments("-private");
         options.addArguments("-kiosk");
         return new FirefoxDriver(options);

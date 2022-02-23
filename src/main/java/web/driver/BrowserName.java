@@ -1,20 +1,14 @@
-package dev.selenium.gsframework.driver;
+package web.driver;
 
-/**
- * Список доступных браузеров
- *
- * author : egribanov
- * created : 13.02.2022, 18:00
- **/
-@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public enum BrowserName {
+
     CHROME("chrome"),
     FIREFOX("firefox"),
     EDGE("edge");
 
-    private final String browserName;
+    private String browserName;
 
-    BrowserName(String browserName) {
+    private BrowserName(String browserName) {
         this.browserName = browserName;
     }
 
@@ -23,11 +17,7 @@ public enum BrowserName {
         return String.valueOf(this.browserName);
     }
 
-    /**
-     * Используется для передачи строки из 'System.getProperty' в switch-блок для вызова драйвера
-     * @param browserName - имя браузера в String из проперти
-     * @return - строковое представление из enum
-     */
+    // Возврат значения константы по строковому значению константы
     public static BrowserName fromString(String browserName) {
         if (browserName != null) {
             for(BrowserName browser : BrowserName.values()) {

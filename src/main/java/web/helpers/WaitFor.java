@@ -19,8 +19,8 @@ public class WaitFor {
     }
 
     /** Ожидание наличия элемента по локатору */
-    public static void presenceOfElementLocated(By webElement) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(webElement));
+    public static void presenceOfElementLocated(By by) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     /** Ожидание появления текста в элементе */
@@ -34,8 +34,8 @@ public class WaitFor {
     }
 
     /** Ожидание кликабельности элемента по локатору */
-    public static void clickabilityOfElementLocated(By webElement) {
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    public static void clickabilityOfElementLocated(By by) {
+        wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
     /** Ожидание видимости элемента */
@@ -44,8 +44,8 @@ public class WaitFor {
     }
 
     /** Ожидание видимости элемента по локатору */
-    public static void visibilityOfElementLocated(By webElement) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(webElement));
+    public static void visibilityOfElementLocated(By by) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     /** Ожидание появления в списке продуктов в первой позиции заданного продукта */

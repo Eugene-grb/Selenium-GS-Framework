@@ -19,13 +19,15 @@ public class GoogleMainPage extends BasePage {
         super(driver);
     }
 
-    public void enterTextInSearchBox(String text) {
+    public GoogleMainPage enterTextInSearchBox(String text) {
         TextBox searchBox = new TextBox(By.xpath(SEARCH_BOX));
         searchBox.setValue(text);
+        return this;
     }
 
-    public void pressSearchButton() {
+    public GoogleMainPage pressSearchButton() {
         Button searchButton = new Button(By.xpath(SEARCH_BUTTON));
         searchButton.click();
+        return this;
     }
 }

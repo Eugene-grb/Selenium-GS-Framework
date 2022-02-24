@@ -17,17 +17,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GoogleTests extends BaseTest {
     private static final String URL = "https://www.google.ru/";
 
+
+
     @Test(retryAnalyzer = RetryListener.class)
     public void searchSelenium() {
         GoogleMainPage googleMainPage = new GoogleMainPage(driver);
         GoogleResultPage googleResultPage = new GoogleResultPage(driver);
-
         NavigateTo.openPage(URL);
-        googleMainPage.enterTextInSearchBox("Selenium");
-        googleMainPage.pressSearchButton();
+        googleMainPage
+                .enterTextInSearchBox("Selenium")
+                .pressSearchButton();
 
         String expectedTextValue = googleResultPage.getCardTitle();
-
         assertThat(expectedTextValue).contains("Selenium");
     }
+
+
+
+
 }

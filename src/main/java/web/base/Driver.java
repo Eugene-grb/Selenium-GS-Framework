@@ -1,32 +1,32 @@
-package web.driver;
+package web.base;
 
 
-import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import web.browser.Browsers;
+import web.browser.Chrome;
+import web.browser.Edge;
+import web.browser.Firefox;
 
 @Slf4j
-public class DriverInstance {
+public abstract class Driver {
     private static RemoteWebDriver webDriver;
 
-    public static RemoteWebDriver getDriver(BrowserName name) {
+    public static RemoteWebDriver setupDriver(Browsers name) {
         switch (name) {
             case CHROME : {
                 log.info("Драйвер для браузера Google Chrome");
-                webDriver = ChromeBrowser.getDriver();
+                webDriver = Chrome.getDriver();
                 break;
             }
             case EDGE : {
                 log.info("Драйвер для браузера Microsoft Edge");
-                webDriver = EdgeBrowser.getDriver();
+                webDriver = Edge.getDriver();
                 break;
             }
             case FIREFOX : {
                 log.info("Драйвер для браузера Mozilla Firefox");
-                webDriver = FirefoxBrowser.getDriver();
+                webDriver = Firefox.getDriver();
                 break;
             }
             default :
@@ -36,12 +36,7 @@ public class DriverInstance {
     }
 
     /** Получение уже созданного экземпляра драйвера */
-    public static WebDriver getCurrentDriver() {
+    public static RemoteWebDriver getInstance() {
         return webDriver;
-    }
-
-    @Step("Screenshot")
-    public static byte[] takeScreenshot() {
-        return ((TakesScreenshot) getCurrentDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

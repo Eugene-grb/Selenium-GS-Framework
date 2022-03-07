@@ -17,15 +17,15 @@ public class Link extends BaseElement {
 
     /** Нажатие на ссылку */
     public void click() {
-        WaitFor.visibilityOfElementLocated(by);
-        WaitFor.clickabilityOfElement(webElement);
+        WaitHelper.visibilityOfElementLocated(by);
+        WaitHelper.clickabilityOfElement(webElement);
         webElement.click();
     }
 
     /** Наведение курсора мыши на ссылку */
     public void focusOnLink() {
-        WaitFor.visibilityOfElementLocated(by);
-        ActionFor.moveToElement(webElement);
+        WaitHelper.visibilityOfElementLocated(by);
+        ActionHelper.moveToElement(webElement);
     }
 
     /** Открытие ссылки в новом окне
@@ -35,9 +35,9 @@ public class Link extends BaseElement {
      * 4. Переход по ссылке в новом окне */
     public void openInNewWindow() {
         String URL = this.getURL();
-        SwitchTo.switchToNewWindow();
-        WindowSetTo.maximizeWindow();
-        NavigateTo.openPage(URL);
+        SwitchHelper.switchToNewWindow();
+        WindowHelper.maximizeWindow();
+        NavigateHelper.openPage(URL);
     }
 
 }

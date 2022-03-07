@@ -5,17 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import web.driver.DriverInstance;
+import web.base.Driver;
 
 import java.time.Duration;
 
-public class WaitFor {
+public class WaitHelper {
 
     protected static WebDriverWait wait;
 
     /** Установка таймаута ожидания и интервал опроса */
     public static void initWait(Duration timeOut, Duration sleep) {
-        wait = new WebDriverWait(DriverInstance.getCurrentDriver(), timeOut, sleep);
+        wait = new WebDriverWait(Driver.getInstance(), timeOut, sleep);
     }
 
     /** Ожидание наличия элемента по локатору */
@@ -34,7 +34,7 @@ public class WaitFor {
     }
 
     /** Ожидание кликабельности элемента по локатору */
-    public static void clickabilityOfElementLocated(By webElement) {
+    public static void clickabilityOfElement(By webElement) {
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
@@ -50,8 +50,8 @@ public class WaitFor {
 
     /** Ожидание появления в списке продуктов в первой позиции заданного продукта */
     @Deprecated
-    public static void firstProductMustBe(By webElement, String product) {
+    public static void firstWebElementMustBe(By webElement, String text) {
         wait.until((ExpectedCondition<Boolean>) webDriver ->
-                webDriver.findElement(webElement).getText().contains(product));
+                webDriver.findElement(webElement).getText().contains(text));
     }
 }

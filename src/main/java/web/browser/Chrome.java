@@ -1,4 +1,4 @@
-package web.driver;
+package web.browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
@@ -8,7 +8,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class ChromeBrowser {
+public class Chrome {
+
+    /** Возвращает экземпляр вебдрайвера для запуска Google Chrome */
     public static RemoteWebDriver getDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();

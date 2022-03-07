@@ -2,8 +2,7 @@ package web.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.driver.DriverInstance;
-import web.helpers.WaitFor;
+import web.helpers.WaitHelper;
 
 import java.time.Duration;
 
@@ -20,9 +19,9 @@ public abstract class BaseElement {
      * и осуществляется поиск элемента */
     public BaseElement(By by) {
         this.by = by;
-        WaitFor.initWait(DURATION_TIMEOUT, DURATION_SLEEP);
-        WaitFor.presenceOfElementLocated(by);
-        webElement = DriverInstance.getCurrentDriver().findElement(by);
+        WaitHelper.initWait(DURATION_TIMEOUT, DURATION_SLEEP);
+        WaitHelper.presenceOfElementLocated(by);
+        webElement = Driver.getInstance().findElement(by);
     }
 
     /** Получение оборачиваемого элемента

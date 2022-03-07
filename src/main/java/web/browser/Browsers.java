@@ -1,6 +1,6 @@
-package web.driver;
+package web.browser;
 
-public enum BrowserName {
+public enum Browsers {
 
     CHROME("chrome"),
     FIREFOX("firefox"),
@@ -8,7 +8,7 @@ public enum BrowserName {
 
     private final String browserName;
 
-    BrowserName(String browserName) {
+    Browsers(String browserName) {
         this.browserName = browserName;
     }
 
@@ -18,9 +18,9 @@ public enum BrowserName {
     }
 
     /* Возврат значения константы по строковому значению константы */
-    public static BrowserName fromString(String browserName) {
+    public static Browsers fromString(String browserName) {
         if (browserName != null) {
-            for(BrowserName browser : BrowserName.values()) {
+            for(Browsers browser : Browsers.values()) {
                 if (browserName.equalsIgnoreCase(browser.browserName)) {
                     return browser;
                 }

@@ -2,7 +2,7 @@ package web.elements;
 
 import org.openqa.selenium.By;
 import web.base.BaseElement;
-import web.helpers.WaitFor;
+import web.helpers.WaitHelper;
 
 public class Hamburger extends BaseElement {
 
@@ -12,8 +12,8 @@ public class Hamburger extends BaseElement {
 
     /** Раскрытие гармошки */
     public void show() {
-        WaitFor.visibilityOfElementLocated(by);
-        WaitFor.clickabilityOfElement(webElement);
+        WaitHelper.visibilityOfElementLocated(by);
+        WaitHelper.clickabilityOfElement(webElement);
         webElement.click();
     }
 }

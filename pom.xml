@@ -27,14 +27,15 @@
         <assertj.version>3.22.0</assertj.version>
 
         <!-- tests -->
-        <testng.version>7.5</testng.version>
+        <!-- в версии 7.5 не отображаются шаги в аллюр, использовать 7.4  -->
+        <testng.version>7.4.0</testng.version>
 
         <!-- logging -->
         <logback.version>1.2.10</logback.version>
 
         <!-- report -->
         <aspectj.version>1.9.7</aspectj.version>
-        <allure.version>2.17.2</allure.version>
+        <allure.version>2.17.3</allure.version>
         <allure-maven-plugin.version>2.11.2</allure-maven-plugin.version>
 
         <!-- other -->
@@ -77,7 +78,6 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <!-- плагин для использования аннотаций  -->
@@ -89,7 +89,6 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-attachments</artifactId>
             <version>${allure.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

@@ -2,7 +2,7 @@ package web.elements;
 
 import org.openqa.selenium.By;
 import web.base.BaseElement;
-import web.helpers.WaitFor;
+import web.helpers.WaitHelper;
 
 public class Button extends BaseElement {
 
@@ -13,8 +13,8 @@ public class Button extends BaseElement {
 
     /** Нажатие на кнопку */
     public void click() {
-        WaitFor.visibilityOfElementLocated(by);
-        WaitFor.clickabilityOfElement(webElement);
+        WaitHelper.visibilityOfElementLocated(by);
+        WaitHelper.clickabilityOfElement(webElement);
         webElement.click();
     }
 }

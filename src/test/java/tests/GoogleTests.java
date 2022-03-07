@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pages.GoogleMainPage;
 import pages.GoogleResultPage;
 import web.base.BaseTest;
-import web.helpers.NavigateTo;
+import web.helpers.NavigateHelper;
 import web.service.testng.RetryListener;
 import web.service.testng.TestErrorListener;
 
@@ -22,12 +22,14 @@ public class GoogleTests extends BaseTest {
 
     @Test(retryAnalyzer = RetryListener.class)
     public void searchSelenium() {
-        GoogleMainPage googleMainPage = new GoogleMainPage(driver);
-        GoogleResultPage googleResultPage = new GoogleResultPage(driver);
+        GoogleMainPage googleMainPage = new GoogleMainPage();
+        GoogleResultPage googleResultPage = new GoogleResultPage();
 
-        NavigateTo.openPage(URL);
-        googleMainPage.enterTextInSearchBox("Selenium");
-        googleMainPage.pressSearchButton();
+        NavigateHelper.openPage(URL);
+
+        googleMainPage.
+                enterTextInSearchBox("Selenium").
+                pressSearchButton();
 
         String expectedTextValue = googleResultPage.getCardTitle();
 

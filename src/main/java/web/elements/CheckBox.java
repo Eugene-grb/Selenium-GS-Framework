@@ -2,7 +2,7 @@ package web.elements;
 
 import org.openqa.selenium.By;
 import web.base.BaseElement;
-import web.helpers.WaitFor;
+import web.helpers.WaitHelper;
 
 public class CheckBox extends BaseElement {
 
@@ -13,14 +13,14 @@ public class CheckBox extends BaseElement {
     /** Установка флажка */
     public void setChecked(boolean value) {
         if (value != isChecked()) {
-            WaitFor.clickabilityOfElement(webElement);
+            WaitHelper.clickabilityOfElement(webElement);
             webElement.click();
         }
     }
 
     /** Проверка, что флажок установлен */
     public boolean isChecked() {
-        WaitFor.visibilityOfElementLocated(by);
+        WaitHelper.visibilityOfElementLocated(by);
         return webElement.isSelected();
     }
 

@@ -1,27 +1,27 @@
 package web.helpers;
 
 
-import web.driver.DriverInstance;
+import web.base.Driver;
 
-public class NavigateTo {
+public class NavigateHelper {
 
     /** Открытие новой страницы */
     public static void openPage(String URL) {
-        DriverInstance.getCurrentDriver().navigate().to(URL);
+        Driver.getInstance().navigate().to(URL);
     }
 
     /** Переход на предыдущую страницу */
     public static void back() {
-        DriverInstance.getCurrentDriver().navigate().back();
+        Driver.getInstance().navigate().back();
     }
 
     /** Переход на следующую страницу */
     public static void forward() {
-        DriverInstance.getCurrentDriver().navigate().forward();
+        Driver.getInstance().navigate().forward();
     }
 
     /** Обновление страницы */
     public static void refresh() {
-        DriverInstance.getCurrentDriver().navigate().refresh();
+        Driver.getInstance().navigate().refresh();
     }
 }

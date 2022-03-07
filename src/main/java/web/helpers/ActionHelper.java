@@ -2,15 +2,15 @@ package web.helpers;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import web.driver.DriverInstance;
+import web.base.Driver;
 
-public class ActionFor {
+public class ActionHelper {
 
     protected static Actions actions;
 
     /** Инициализация действий */
     public static void initActions() {
-        actions = new Actions(DriverInstance.getCurrentDriver());
+        actions = new Actions(Driver.getInstance());
     }
 
     /** Перемещение курсора мыши на элемент */

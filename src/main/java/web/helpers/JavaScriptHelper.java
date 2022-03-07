@@ -2,14 +2,14 @@ package web.helpers;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import web.driver.DriverInstance;
+import web.base.Driver;
 
-public class JavaScript {
+public class JavaScriptHelper {
     protected static JavascriptExecutor js;
 
     /** Инициализация исполнителя Js скриптов */
     public static void initJS() {
-        js = (JavascriptExecutor) DriverInstance.getCurrentDriver();
+        js = Driver.getInstance();
     }
 
     /** Скролл страницы на заданное расстояние в пикселях по X и по Y */

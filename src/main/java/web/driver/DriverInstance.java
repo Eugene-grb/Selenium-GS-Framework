@@ -1,7 +1,10 @@
 package web.driver;
 
 
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -35,5 +38,10 @@ public class DriverInstance {
     /** Получение уже созданного экземпляра драйвера */
     public static WebDriver getCurrentDriver() {
         return webDriver;
+    }
+
+    @Step("Screenshot")
+    public static byte[] takeScreenshot() {
+        return ((TakesScreenshot) getCurrentDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

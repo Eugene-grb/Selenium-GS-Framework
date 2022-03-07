@@ -2,14 +2,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Listeners;
 import web.base.BasePage;
 import web.elements.Button;
 import web.elements.TextBox;
+import web.service.testng.TestErrorListener;
 
 /**
  * author : egribanov
  * created : 23.02.2022, 19:02
  **/
+@Listeners(TestErrorListener.class)
 public class GoogleMainPage extends BasePage {
 
     private static final String SEARCH_BOX = "//input[@name='q']";

@@ -3,6 +3,7 @@
 <suite name="Parent_Suite">
     <listeners>
         <listener class-name="web.service.testng.ExecutionListener"/>
+        <listener class-name="web.service.testng.TestErrorListener"/>
     </listeners>
 
     <test name="ItestReporter">

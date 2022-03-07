@@ -6,11 +6,12 @@ import web.helpers.*;
 
 public class Link extends BaseElement {
 
+    /** Ссылка */
     public Link(By by) {
         super(by);
     }
 
-    // Получение ссылки
+    /** Получение ссылки */
     public String getURL() {
         return webElement.getAttribute("href");
     }

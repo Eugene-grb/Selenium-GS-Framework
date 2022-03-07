@@ -3,6 +3,7 @@ package web.helpers;
 
 import web.base.Driver;
 
+/** Класс для перемещения по страницам */
 public class NavigateHelper {
 
     /** Открытие новой страницы */

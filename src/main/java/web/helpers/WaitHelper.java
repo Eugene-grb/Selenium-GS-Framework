@@ -9,6 +9,7 @@ import web.base.Driver;
 
 import java.time.Duration;
 
+/** Класс для ожидания элементов */
 public class WaitHelper {
 
     protected static WebDriverWait wait;

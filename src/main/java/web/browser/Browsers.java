@@ -1,5 +1,6 @@
 package web.browser;
 
+/** Перечисление доступных браузеров */
 public enum Browsers {
 
     CHROME("chrome"),
@@ -12,12 +13,13 @@ public enum Browsers {
         this.browserName = browserName;
     }
 
+    /** Получить имя браузера в виде строки */
     @Override
     public String toString() {
         return String.valueOf(this.browserName);
     }
 
-    /* Возврат значения константы по строковому значению константы */
+    /** Возврат значения константы по строковому значению константы */
     public static Browsers fromString(String browserName) {
         if (browserName != null) {
             for(Browsers browser : Browsers.values()) {
@@ -29,7 +31,7 @@ public enum Browsers {
         return null;
     }
 
-    /* получить имя браузера  */
+    /** Получить имя браузера  */
     public String getBrowserName() {
         return this.browserName;
     }

@@ -6,6 +6,7 @@ import web.helpers.WaitHelper;
 
 public class TextBox extends BaseElement {
 
+    /** Поле для ввода текста */
     public TextBox(By by) {
         super(by);
     }

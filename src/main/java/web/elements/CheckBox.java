@@ -6,6 +6,7 @@ import web.helpers.WaitHelper;
 
 public class CheckBox extends BaseElement {
 
+    /** Чекбокс */
     public CheckBox(By by) {
         super(by);
     }

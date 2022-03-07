@@ -4,6 +4,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import web.base.Driver;
 
+/** Класс для взаимодействия с размером и положением окна */
 public class WindowHelper {
 
     /** Минимизация размеров окна */

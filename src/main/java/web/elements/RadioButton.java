@@ -6,6 +6,7 @@ import web.helpers.WaitHelper;
 
 public class RadioButton extends BaseElement {
 
+    /** Радио кнопка */
     public RadioButton(By by) {
         super(by);
     }

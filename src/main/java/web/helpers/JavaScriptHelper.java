@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import web.base.Driver;
 
+/** Класс для выполняния JavaScript скриптов */
 public class JavaScriptHelper {
     protected static JavascriptExecutor js;
 

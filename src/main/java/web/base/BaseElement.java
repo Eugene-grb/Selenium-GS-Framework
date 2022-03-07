@@ -6,12 +6,21 @@ import web.helpers.WaitHelper;
 
 import java.time.Duration;
 
+/** Базовый класс для всех элементов
+ * При создании нового вида элемента и способов взамодействия с ним следует наследоваться от данного класса */
 public abstract class BaseElement {
 
+    /** Получение вебэлемента */
     protected WebElement webElement;
+
+    /** Получение локатора */
     protected By by;
-    private static final Duration DURATION_TIMEOUT = Duration.ofSeconds(3);
-    private static final Duration DURATION_SLEEP = Duration.ofSeconds(3);
+
+    /** Установка ожидания, по истетечении которого происходит исключение */
+    private static final Duration DURATION_TIMEOUT = Duration.ofSeconds(5);
+
+    /** Установка ожидания перерыва между повторным поиском */
+    private static final Duration DURATION_SLEEP = Duration.ofSeconds(5);
 
     /**  Базовый элемент
      * @param by - локатор элемента

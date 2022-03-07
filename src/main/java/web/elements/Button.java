@@ -6,7 +6,7 @@ import web.helpers.WaitHelper;
 
 public class Button extends BaseElement {
 
-    // Конструктор
+    /** Кнопка */
     public Button(By by) {
         super(by);
     }

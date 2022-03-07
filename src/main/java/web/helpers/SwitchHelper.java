@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import web.base.Driver;
 
+/** Класс для переключения окон */
 public class SwitchHelper {
 
     /** Переключение на созданное окно */
@@ -37,9 +38,7 @@ public class SwitchHelper {
     }
 
     /** Переключение на фрейм по веб элементу */
-    public static void switchToFrameByFrameWebElement(WebElement webElement) {
-        Driver.getInstance().switchTo().frame(webElement);
-    }
+    public static void switchToFrameByFrameWebElement(WebElement webElement) { Driver.getInstance().switchTo().frame(webElement); }
 
     /** Переключение на родительский фрейм */
     public static void switchToParentFrame() {

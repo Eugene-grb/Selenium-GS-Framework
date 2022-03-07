@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import web.base.Driver;
 
+/** Класс для взаимодействия с курсором */
 public class ActionHelper {
 
     protected static Actions actions;
@@ -13,7 +14,7 @@ public class ActionHelper {
         actions = new Actions(Driver.getInstance());
     }
 
-    /** Перемещение курсора мыши на элемент */
+    /** Перемещение курсора на элемент */
     public static void moveToElement(WebElement webElement) {
         actions.moveToElement(webElement).perform();
     }

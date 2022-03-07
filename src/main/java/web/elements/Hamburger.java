@@ -6,6 +6,7 @@ import web.helpers.WaitHelper;
 
 public class Hamburger extends BaseElement {
 
+    /** Меню с тремя полосками */
     public Hamburger(By by) {
         super(by);
     }
